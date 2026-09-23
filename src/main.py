@@ -1,6 +1,8 @@
 """python src/main.py 24114007"""
 import csv
 import json
+import os
+import platform
 import sys
 from pathlib import Path
 from gerador_pomar import gerar_pomar
@@ -9,8 +11,8 @@ from busca_local import executar
 from bayes import calcular
 from especialista import demonstracao
 
-def main(matricula):
-    pasta = Path(__file__).resolve().parent.parent / "resultados"
+def main(matricula, pasta=None):
+    pasta = Path(pasta) if pasta is not None else Path(__file__).resolve().parent.parent / "resultados"
     pasta.mkdir(exist_ok=True)
     grade = gerar_pomar(matricula)
     (pasta / "pomar.txt").write_text(f"Matrícula-semente: {matricula}\n" +
@@ -23,12 +25,15 @@ def main(matricula):
         escritor.writeheader()
         for r in resultados:
             escritor.writerow({campo: getattr(r, campo) for campo in colunas})
+    os.environ.setdefault("MPLCONFIGDIR", str(pasta.parent / ".cache" / "matplotlib"))
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
     rotulos = [r.estrategia + (" " + r.heuristica if r.heuristica else "") for r in resultados]
     fig, eixo = plt.subplots(figsize=(10, 5))
-    eixo.bar(rotulos, [r.nos_expandidos for r in resultados])
+    barras = eixo.bar(rotulos, [r.nos_expandidos for r in resultados])
+    eixo.bar_label(barras)
+    eixo.set_ylim(0, max(r.nos_expandidos for r in resultados) * 1.15)
     eixo.set_xlabel("Estratégia e heurística")
     eixo.set_ylabel("Nós expandidos (quantidade)")
     eixo.set_title(f"Nós expandidos no pomar: semente {matricula}")
@@ -38,6 +43,8 @@ def main(matricula):
     plt.close(fig)
     adicionais = {
         "matricula": matricula,
+        "ambiente": {"python": platform.python_version(), "plataforma": platform.platform(),
+                     "matplotlib": matplotlib.__version__},
         "estados_livres": sum(c != "#" for linha in grade for c in linha),
         "sensor": calcular(matricula),
         "busca_local": {metodo: executar(grade, metodo, semente=matricula)

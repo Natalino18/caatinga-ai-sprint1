@@ -1,3 +1,6 @@
 venv/
 __pycache__/
 .venv/
+*.py[cod]
+.cache/
+.DS_Store
