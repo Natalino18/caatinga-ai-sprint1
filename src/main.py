@@ -1,9 +1,9 @@
 """python src/main.py 24114007"""
+import argparse
 import csv
 import json
 import os
 import platform
-import sys
 from pathlib import Path
 from gerador_pomar import gerar_pomar
 from buscas import bfs, dfs, ucs, astar
@@ -21,7 +21,7 @@ def main(matricula, pasta=None):
                   astar(grade, 0), astar(grade, 1), astar(grade, 4)]
     with (pasta / "resultados.csv").open("w", newline="", encoding="utf-8") as arquivo:
         colunas = ["estrategia", "heuristica", "custo", "passos", "nos_expandidos", "fronteira_max", "tempo_ms"]
-        escritor = csv.DictWriter(arquivo, fieldnames=colunas)
+        escritor = csv.DictWriter(arquivo, fieldnames=colunas, lineterminator="\n")
         escritor.writeheader()
         for r in resultados:
             escritor.writerow({campo: getattr(r, campo) for campo in colunas})
@@ -62,6 +62,13 @@ def main(matricula, pasta=None):
         print(" ", passo)
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2 or not sys.argv[1].isdigit():
-        sys.exit("Uso: python src/main.py <matricula_sem_pontos>")
-    main(int(sys.argv[1]))
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("matricula", type=int, help="Matrícula sem pontos")
+    parser.add_argument("--escala", action="store_true", help="Também executa o experimento até 60 s por busca")
+    args = parser.parse_args()
+    if args.matricula < 0:
+        parser.error("Use uma matrícula não negativa, sem pontos")
+    main(args.matricula)
+    if args.escala:
+        from escala import executar as executar_escala
+        executar_escala(args.matricula, Path(__file__).resolve().parents[1] / "resultados")
