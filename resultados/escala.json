@@ -1,0 +1,173 @@
+{
+  "semente": 24114007,
+  "data_utc": "2026-09-23T17:09:57.752841+00:00",
+  "python": "3.13.3 (v3.13.3:6280bb54784, Apr  8 2025, 10:47:54) [Clang 15.0.0 (clang-1500.3.9.4)]",
+  "plataforma": "macOS-12.7.6-x86_64-i386-64bit-Mach-O",
+  "processador": "i386",
+  "cpus_logicas": 8,
+  "limite_busca_s": 60,
+  "repeticoes_por_caso": 1,
+  "registros": [
+    {
+      "metodo": "BFS",
+      "n": 100,
+      "status": "concluido",
+      "tempo_s": 0.027191585977561772,
+      "expandidos": 8018,
+      "fronteira_max": 102,
+      "custo": 423,
+      "passos": 198
+    },
+    {
+      "metodo": "BFS",
+      "n": 400,
+      "status": "concluido",
+      "tempo_s": 0.3633117430144921,
+      "expandidos": 127659,
+      "fronteira_max": 383,
+      "custo": 1737,
+      "passos": 798
+    },
+    {
+      "metodo": "BFS",
+      "n": 1000,
+      "status": "concluido",
+      "tempo_s": 2.431006486003753,
+      "expandidos": 798875,
+      "fronteira_max": 926,
+      "custo": 4530,
+      "passos": 1998
+    },
+    {
+      "metodo": "BFS",
+      "n": 2000,
+      "status": "concluido",
+      "tempo_s": 10.818080477998592,
+      "expandidos": 3193075,
+      "fronteira_max": 1805,
+      "custo": 8750,
+      "passos": 3998
+    },
+    {
+      "metodo": "BFS",
+      "n": 4000,
+      "status": "concluido",
+      "tempo_s": 50.64335307799047,
+      "expandidos": 12775400,
+      "fronteira_max": 3569,
+      "custo": 17295,
+      "passos": 7998
+    },
+    {
+      "metodo": "BFS",
+      "n": 8000,
+      "status": "limite_tempo",
+      "tempo_s_minimo": 60,
+      "fase": "busca"
+    },
+    {
+      "metodo": "DFS",
+      "n": 100,
+      "status": "concluido",
+      "tempo_s": 0.012860852002631873,
+      "expandidos": 4459,
+      "fronteira_max": 2317,
+      "custo": 5398,
+      "passos": 2446
+    },
+    {
+      "metodo": "DFS",
+      "n": 400,
+      "status": "concluido",
+      "tempo_s": 0.18156924098730087,
+      "expandidos": 62252,
+      "fronteira_max": 32530,
+      "custo": 72280,
+      "passos": 32686
+    },
+    {
+      "metodo": "DFS",
+      "n": 1000,
+      "status": "concluido",
+      "tempo_s": 1.2768080609967,
+      "expandidos": 397775,
+      "fronteira_max": 211871,
+      "custo": 468460,
+      "passos": 212374
+    },
+    {
+      "metodo": "DFS",
+      "n": 2000,
+      "status": "concluido",
+      "tempo_s": 5.426977182010887,
+      "expandidos": 1570365,
+      "fronteira_max": 847603,
+      "custo": 1869512,
+      "passos": 849446
+    },
+    {
+      "metodo": "DFS",
+      "n": 4000,
+      "status": "concluido",
+      "tempo_s": 22.758063703018706,
+      "expandidos": 6252651,
+      "fronteira_max": 3416226,
+      "custo": 7534456,
+      "passos": 3424384
+    },
+    {
+      "metodo": "DFS",
+      "n": 8000,
+      "status": "limite_tempo",
+      "tempo_s_minimo": 60,
+      "fase": "busca"
+    },
+    {
+      "metodo": "UCS",
+      "n": 100,
+      "status": "concluido",
+      "tempo_s": 0.028468105010688305,
+      "expandidos": 8017,
+      "fronteira_max": 154,
+      "custo": 289,
+      "passos": 202
+    },
+    {
+      "metodo": "UCS",
+      "n": 400,
+      "status": "concluido",
+      "tempo_s": 0.5511096809932496,
+      "expandidos": 127658,
+      "fronteira_max": 614,
+      "custo": 1093,
+      "passos": 838
+    },
+    {
+      "metodo": "UCS",
+      "n": 1000,
+      "status": "concluido",
+      "tempo_s": 4.330214980000164,
+      "expandidos": 798874,
+      "fronteira_max": 1485,
+      "custo": 2711,
+      "passos": 2054
+    },
+    {
+      "metodo": "UCS",
+      "n": 2000,
+      "status": "concluido",
+      "tempo_s": 20.4608359199774,
+      "expandidos": 3193063,
+      "fronteira_max": 2981,
+      "custo": 5414,
+      "passos": 4160
+    },
+    {
+      "metodo": "UCS",
+      "n": 4000,
+      "status": "limite_tempo",
+      "tempo_s_minimo": 60,
+      "fase": "busca"
+    }
+  ]
+}
