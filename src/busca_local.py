@@ -8,7 +8,7 @@ import statistics
 
 def candidatos(grade):
     return [(i, j) for i, linha in enumerate(grade) for j, celula in enumerate(linha)
-            if celula != "#" and (i, j) not in ((0, 0), (len(grade)-1, len(grade)-1))]
+            if celula != "#" and (i, j) not in ((0, 0), (len(grade)-1, len(grade[-1])-1))]
 
 def risco(grade, p):
     i, j = p
@@ -18,7 +18,7 @@ def risco(grade, p):
     return 2 + 3 * (grade[i][j] == "~") + molhados
 
 def pontuacao(grade, selecao):
-    # Benefício esperado menos deslocamento mínimo aproximado (não é rota real).
+    # Benefício esperado menos deslocamento por vizinho mais próximo (não é rota real).
     restantes, atual, deslocamento = set(selecao), (0, 0), 0
     while restantes:
         proximo = min(restantes, key=lambda p: (abs(atual[0]-p[0]) + abs(atual[1]-p[1]), p))
@@ -28,35 +28,43 @@ def pontuacao(grade, selecao):
     return sum(risco(grade, p) for p in selecao) - 0.3 * deslocamento
 
 def vizinho(selecao, universo, rng):
-    retirada = rng.choice(tuple(selecao))
+    retirada = rng.choice(sorted(selecao))
     entrada = rng.choice(tuple(sorted(universo - selecao)))
     return selecao - {retirada} | {entrada}
 
 def executar(grade, metodo, repeticoes=30, k=15, passos=300, semente=0):
+    if metodo not in ("encosta", "tempera"):
+        raise ValueError("Método deve ser encosta ou tempera")
+    if repeticoes < 2 or passos < 1 or k < 1:
+        raise ValueError("Use pelo menos 2 repetições, 1 passo e 1 talhão")
     universo = set(candidatos(grade))
     if len(universo) < k:
         raise ValueError("Há menos de K talhões livres")
     resultados = []
+    selecoes = []
     exemplos_piora = []
     for execucao in range(repeticoes):
         rng = random.Random(semente + execucao)
         atual = set(rng.sample(sorted(universo), k))
         valor = pontuacao(grade, atual)
         melhor = valor
+        melhor_selecao = set(atual)
         pioras = 0
-        for t in range(passos):
+        for t in range(passos if k < len(universo) else 0):
             proximo = vizinho(atual, universo, rng)
             novo = pontuacao(grade, proximo)
             delta = novo - valor
             temperatura = max(0.05, 8 * (1 - t / passos))
-            aceita = delta > 0 or (metodo == "tempera" and delta < 0 and rng.random() < math.exp(delta / temperatura))
+            aceita = delta > 0 or (metodo == "tempera" and delta <= 0 and rng.random() < math.exp(delta / temperatura))
             if aceita:
                 if delta < 0:
                     pioras += 1
                 atual, valor = proximo, novo
-                melhor = max(melhor, valor)
+                if valor > melhor:
+                    melhor, melhor_selecao = valor, set(atual)
+        selecoes.append(sorted(melhor_selecao))
         resultados.append(round(melhor, 3))
         exemplos_piora.append(pioras)
-    return {"valores": resultados, "media": statistics.mean(resultados),
+    return {"selecoes": selecoes, "valores": resultados, "media": statistics.mean(resultados),
             "desvio": statistics.stdev(resultados), "melhor": max(resultados),
             "pioras_aceitas": exemplos_piora}
