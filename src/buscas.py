@@ -19,6 +19,14 @@ class Resultado:
     fronteira_max: int
     tempo_ms: float
 
+def validar_grade(grade):
+    if not grade or not grade[0] or any(len(l) != len(grade[0]) for l in grade):
+        raise ValueError("A grade deve ser retangular e não vazia")
+    if any(c not in {".", "~", "#"} for linha in grade for c in linha):
+        raise ValueError("Símbolo desconhecido na grade")
+    if grade[0][0] not in CUSTO or grade[-1][-1] not in CUSTO:
+        raise ValueError("Origem e destino devem ser transitáveis")
+
 def vizinhos(grade, atual):
     i, j = atual
     for di, dj in ORDEM:
@@ -39,7 +47,10 @@ def resultado(nome, heuristica, grade, pais, fim, expandidos, maior, inicio):
                      len(rota) - 1, expandidos, maior, (perf_counter() - inicio) * 1000)
 
 def busca_cega(grade, metodo):
+    if metodo not in ("BFS", "DFS"):
+        raise ValueError("Método deve ser BFS ou DFS")
     inicio = perf_counter()
+    validar_grade(grade)
     raiz, alvo = (0, 0), (len(grade) - 1, len(grade[0]) - 1)
     fronteira = deque([raiz]) if metodo == "BFS" else [raiz]
     pais = {raiz: None}
@@ -70,6 +81,7 @@ def heuristica(pos, alvo, fator):
 
 def busca_custo(grade, nome="UCS", fator=0):
     inicio = perf_counter()
+    validar_grade(grade)
     raiz, alvo = (0, 0), (len(grade) - 1, len(grade[0]) - 1)
     sequencia = count()
     fronteira = [(heuristica(raiz, alvo, fator), next(sequencia), 0, raiz)]
