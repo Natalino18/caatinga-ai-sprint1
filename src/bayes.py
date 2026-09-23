@@ -11,4 +11,6 @@ def calcular(matricula):
     falsos = p["talhoes_por_semana"] * (1 - prevalencia) * falso_positivo
     return {**p, "vpp": vpp(sensibilidade), "falsos_em_100_alertas": 100 * (1 - vpp(sensibilidade)),
             "falsos_por_semana": falsos, "horas_perdidas": falsos * 12 / 60,
-            "vpp_999": vpp(.999)}
+            "vpp_999": vpp(.999),
+            "vpp_dois_positivos_independentes": (prevalencia * sensibilidade**2) /
+                (prevalencia * sensibilidade**2 + (1 - prevalencia) * falso_positivo**2)}

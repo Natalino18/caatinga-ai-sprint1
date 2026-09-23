@@ -9,7 +9,9 @@ REGRAS = [
     ("nao_pulverizar_automaticamente", ("sem_laudo_humano",), "R7"),
 ]
 
-def provar(meta, fatos, regras=REGRAS, visitados=None):
+REGRAS_CORRIGIDAS = REGRAS + [("inspecionar_prioridade_alta", ("sintomas_visuais",), "R8")]
+
+def provar(meta, fatos, regras=REGRAS_CORRIGIDAS, visitados=None):
     visitados = set() if visitados is None else visitados
     if meta in fatos:
         return [f"Fato observado: {meta}"]
@@ -31,7 +33,7 @@ def provar(meta, fatos, regras=REGRAS, visitados=None):
 def demonstracao():
     fatos = {"leitura_positiva", "umidade_alta", "dias_maior_14", "sem_laudo_humano"}
     caso = {"sensor_negativo", "sintomas_visuais", "sem_laudo_humano"}
-    corrigidas = REGRAS + [("inspecionar_prioridade_alta", ("sintomas_visuais",), "R8")]
     return {"exemplo": provar("inspecionar_prioridade_alta", fatos),
-            "antes": provar("inspecionar_prioridade_alta", caso),
-            "depois": provar("inspecionar_prioridade_alta", caso, corrigidas)}
+            "antes": provar("inspecionar_prioridade_alta", caso, REGRAS),
+            "depois": provar("inspecionar_prioridade_alta", caso, REGRAS_CORRIGIDAS),
+            "bloqueio_pulverizacao": provar("nao_pulverizar_automaticamente", caso)}
