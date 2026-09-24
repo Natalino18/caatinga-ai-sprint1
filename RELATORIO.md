@@ -1,6 +1,6 @@
 # Relatório — Caatinga.AI (semente 24114007)
 
-**Aluno:** Natalino Varela Correia — matrícula 241.14.007 (individual). **Disciplina:** Inteligência Artificial, 2026.2.
+**Integrantes:** Natalino Varela Correia — matrícula 241.14.007 (integrante mais velho); nome completo do integrante da matrícula 241.14.002 ainda precisa ser informado. **Disciplina:** Inteligência Artificial, 2026.2.
 Os resultados principais vêm de `python src/main.py 24114007`; a escala
 vem de `python src/escala.py 24114007`. Valores hipotéticos são identificados.
 O enunciado original e a Aula 03 não estão disponíveis nesta pasta; as
@@ -202,8 +202,12 @@ comprovar limites de custo da rota e medir o VPP e as horas de inspeção falsa
 em dados reais. Nesta semente, a recomendação de rota da DFS custa 103 contra
 37 do UCS e o VPP do sensor é aproximadamente 50,12%.
 
-**Pendente para entrega:** obter e conferir o PDF do enunciado (inclusive
-bônus e fórmulas da Aula 03), comparar o gerador com o original do professor,
-confirmar autorização individual, publicar no GitHub, testar em outro
-computador, completar os dois pares integrais de prompts/respostas reais e
-gerar/conferir o PDF final exigido no AVA. Não houve segundo integrante.
+**Pendente para entrega:** informar o nome completo do integrante da matrícula
+241.14.002, obter e conferir o PDF do enunciado (inclusive bônus e fórmulas da
+Aula 03), comparar o gerador com o original do professor, publicar no GitHub,
+testar em outro computador, completar os dois pares integrais de
+prompts/respostas reais e gerar/conferir o PDF final exigido no AVA. O commit
+feito nesta revisão usa apenas a identidade de Natalino Varela Correia; o
+segundo integrante ainda precisa realizar uma alteração real e criar seu
+próprio commit com sua conta e configuração Git. Não se deve criar um commit
+fingindo ser essa pessoa.

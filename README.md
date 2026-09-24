@@ -2,11 +2,11 @@
 
 **Disciplina:** Inteligência Artificial, UniRios, 2026.2
 
-**Aluno:** Natalino Varela Correia, matrícula **241.14.007**
+**Integrantes:** Natalino Varela Correia, matrícula **241.14.007** (integrante mais velho); nome completo do integrante da matrícula **241.14.002** ainda precisa ser informado.
 
 **Matrícula-semente:** `24114007` (sem pontos).
 
-**Formato individual:** confirmar autorização com o professor, pois o enunciado pede dupla.
+**Formato:** trabalho realizado em dupla. A matrícula-semente permanece `24114007`, definida pelo integrante mais velho, sem alteração dos resultados por causa da segunda matrícula.
 
 ## O que faz
 
@@ -94,10 +94,13 @@ na estrutura, inclusive entradas antigas ainda não descartadas.
   essa origem não pôde ser verificada nesta revisão.
   **compare-o com o arquivo original disponibilizado pelo professor** antes
   de entregar. O PDF do enunciado não está nesta pasta; sua obtenção no AVA depende do aluno.
-- Os commits locais registram esta revisão usando somente a identidade Git
-  configurada. Publicação no GitHub, teste em outra máquina, autorização para
-  entrega individual, dois pares completos de prompts/respostas reais e o PDF
-  para entrega no AVA dependem do aluno. Confira o enunciado original.
+- Os commits locais desta revisão registram somente a identidade Git de Natalino
+  Varela Correia. O integrante da matrícula 241.14.002 deve fazer uma alteração
+  real e criar um commit usando sua própria conta e configuração Git; não se deve
+  configurar essa identidade neste computador nem criar commits em nome dela.
+  Publicação no GitHub, teste em outra máquina, dois pares completos de
+  prompts/respostas reais e o PDF para entrega no AVA dependem dos integrantes.
+  Confira o enunciado original.
 - Veja [AUDITORIA.md](AUDITORIA.md) para evidências e limitações da revisão.
 
 ## Para explicar na arguição

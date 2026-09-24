@@ -48,9 +48,13 @@ Durante a escrita de um teste Bayes, um literal esperado foi digitado com
 precisão incorreta; o teste falhou e o literal foi corrigido pelo cálculo.
 
 Não houve teste em outro computador, publicação remota, comparação com o
-original do professor nem acesso ao AVA. Os commits são etapas desta revisão,
-com a identidade Git preexistente; não representam contribuições anteriores,
-trabalho de uma dupla ou histórico retroativo.
+original do professor nem acesso ao AVA. O trabalho é de Natalino Varela
+Correia (241.14.007) e do integrante da matrícula 241.14.002, cujo nome
+completo ainda precisa ser informado. Os commits desta revisão são etapas
+locais feitas somente com a identidade Git preexistente de Natalino; o segundo
+integrante ainda precisa realizar uma alteração real e criar um commit com sua
+própria conta e configuração Git. Isso não deve ser simulado nem tratado como
+histórico retroativo.
 
 ## Verificação final
 

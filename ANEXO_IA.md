@@ -4,8 +4,10 @@
 
 Nesta revisão, Codex leu os arquivos disponíveis, corrigiu código, criou e
 executou testes, mediu a escala local, atualizou a documentação e criou
-commits locais usando a identidade Git previamente configurada. A solicitação
-foi de Natalino Varela Correia, matrícula 241.14.007, trabalho individual.
+commits locais usando a identidade Git previamente configurada. O trabalho é
+realizado em dupla: Natalino Varela Correia, matrícula 241.14.007, é o
+integrante mais velho; o nome completo do integrante da matrícula 241.14.002
+ainda precisa ser informado.
 O histórico de conversas anteriores não está disponível nesta pasta; não é
 possível atestar quais ferramentas produziram cada trecho do material inicial.
 O aluno ainda deve revisar e conseguir explicar todo o trabalho.
@@ -15,7 +17,7 @@ O aluno ainda deve revisar e conseguir explicar todo o trabalho.
 Copiar da conversa **dois pares reais completos**, preservando cada prompt e
 sua resposta integral. O pedido desta revisão e a resposta final podem ser
 um dos pares, se aceitos pelo professor. Não foram fabricadas transcrições,
-respostas anteriores nem um segundo integrante. Este anexo não está completo
+respostas anteriores nem o nome do segundo integrante. Este anexo não está completo
 para entrega enquanto os dois pares reais não forem inseridos pelo aluno.
 
 ## A.3 Imprecisão comprovada nesta revisão
