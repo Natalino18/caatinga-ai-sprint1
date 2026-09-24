@@ -2,7 +2,7 @@
 
 **Disciplina:** Inteligência Artificial, UniRios, 2026.2
 
-**Integrantes:** Natalino Varela Correia, matrícula **241.14.007** (integrante mais velho); nome completo do integrante da matrícula **241.14.002** ainda precisa ser informado.
+**Integrantes:** Natalino Varela Correia, matrícula **241.14.007** (integrante mais velho); Vinicius Teixeira Ferraz **241.14.002**.
 
 **Matrícula-semente:** `24114007` (sem pontos).
 
