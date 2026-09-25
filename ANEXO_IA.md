@@ -6,8 +6,7 @@ Nesta revisão, Codex leu os arquivos disponíveis, corrigiu código, criou e
 executou testes, mediu a escala local, atualizou a documentação e criou
 commits locais usando a identidade Git previamente configurada. O trabalho é
 realizado em dupla: Natalino Varela Correia, matrícula 241.14.007, é o
-integrante mais velho; o nome completo do integrante da matrícula 241.14.002
-ainda precisa ser informado.
+integrante mais velho;  Vinicius Teixeira Ferraz 241.14.002.
 O histórico de conversas anteriores não está disponível nesta pasta; não é
 possível atestar quais ferramentas produziram cada trecho do material inicial.
 O aluno ainda deve revisar e conseguir explicar todo o trabalho.
