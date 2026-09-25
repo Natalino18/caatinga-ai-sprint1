@@ -1,6 +1,7 @@
 # Relatório — Caatinga.AI (semente 24114007)
 
-**Integrantes:** Natalino Varela Correia — matrícula 241.14.007 (integrante mais velho); nome completo do integrante da matrícula 241.14.002 ainda precisa ser informado. **Disciplina:** Inteligência Artificial, 2026.2.
+**Integrantes:** Natalino Varela Correia — matrícula 241.14.007 (integrante mais velho); Vinicius Teixeira Ferraz — matrícula 241.14.002. 
+**Disciplina:** Inteligência Artificial, 2026.2.
 Os resultados principais vêm de `python src/main.py 24114007`; a escala
 vem de `python src/escala.py 24114007`. Valores hipotéticos são identificados.
 O enunciado original e a Aula 03 não estão disponíveis nesta pasta; as
