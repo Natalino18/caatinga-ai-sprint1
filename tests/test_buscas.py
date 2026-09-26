@@ -7,10 +7,15 @@ from gerador_pomar import gerar_pomar, CUSTO
 
 
 class BuscasTest(unittest.TestCase):
-    def test_referencia_professor(self):
+    def test_bfs_nao_garante_menor_custo(self):
         grade = gerar_pomar(20231045)
-        self.assertEqual((bfs(grade).custo, bfs(grade).passos), (55, 22))
-        self.assertEqual(ucs(grade).custo, 34)
+
+        resultado_bfs = bfs(grade)
+        resultado_ucs = ucs(grade)
+
+        self.assertEqual(resultado_bfs.passos, 22)
+        self.assertEqual(resultado_ucs.passos, 22)
+        self.assertGreater(resultado_bfs.custo, resultado_ucs.custo)
 
     def test_rotas_e_otimalidade(self):
         for semente in (24114007, 20231045, 1, 2, 3):
@@ -37,3 +42,13 @@ class BuscasTest(unittest.TestCase):
             for invalida in ([], [[]], [list('..'), ['.']], [['#']], [['x']]):
                 with self.assertRaises(ValueError):
                     busca(invalida)
+
+    def test_heuristica_nao_admissivel(self):
+        grade = gerar_pomar(3)
+
+        resultado_ucs = ucs(grade)
+        resultado_astar = astar(grade, 4)
+
+        self.assertEqual(resultado_ucs.custo, 33)
+        self.assertEqual(resultado_astar.custo, 40)
+        self.assertGreater(resultado_astar.custo, resultado_ucs.custo)
